@@ -1,0 +1,102 @@
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f8f8f4;
+  color: #333;
+}
+
+/* Navbar main container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, #146356, #0f4330); /* Islamic green */
+  color: #fff;
+  border-bottom: 4px solid #d4af37; /* Gold border for elegance */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Left section: Logo + Titles */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-left img.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #d4af37; /* Gold border */
+  background: #fff;
+}
+
+.navbar-left h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff8dc; /* Soft cream */
+}
+
+.navbar-left h5 {
+  font-size: 13px;
+  color: #e0e0e0;
+}
+
+/* Navbar links container */
+.navbar-brand {
+  background: #145a3f; /* Dark green */
+  padding: 10px 20px;
+  border-top: 1px solid #d4af37;
+}
+
+.navbar-brand ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navbar-brand ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand ul li a:hover,
+.navbar-brand ul li a.active {
+  background: #d4af37; /* Gold background */
+  color: #0f4330; /* Dark green text */
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .navbar-brand ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}

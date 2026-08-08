@@ -1,0 +1,42 @@
+<div class="evaluations-container">
+  <div class="header">
+    <h2>Evaluations</h2>
+    <div class="header-actions">
+      <button class="btn btn-primary" (click)="onNew()">New Evaluation</button>
+      <button class="btn btn-info" (click)="onAssign()">Assign to Class</button>
+    </div>
+  </div>
+
+  <div *ngIf="loading">Loading...</div>
+
+  <table *ngIf="!loading" class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Description</th>
+        <!--<th>Max Score</th>
+        <th>Passing</th>
+        <th>Remarks</th>-->
+        <th>Active</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of evaluations; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.description}}</td>
+        <!--//<td>{{e.maxScore}}</td>
+        //<td>{{e.passingScore}}</td>
+        //<td>{{e.remarks}}</td>-->
+        <td>{{e.active ? 'Yes' : 'No'}}</td>
+        <td>
+          <button class="btn btn-sm btn-secondary" (click)="onEdit(e.id)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteEvaluation(e.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

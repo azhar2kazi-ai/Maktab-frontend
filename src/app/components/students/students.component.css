@@ -1,0 +1,64 @@
+/* Students component uses global styles from styles.css */
+/* Override container styling if needed */
+.container {
+  background: var(--bg-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--accent-color);
+  margin-top: var(--spacing-lg);
+}
+
+.container h2 {
+  font-size: var(--font-size-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Search bar styling */
+.form-control {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 102, 102, 0.1);
+}
+
+/* Row and column spacing */
+.row {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.col-md-9, .col-md-3 {
+  display: flex;
+  flex: 1;
+}
+
+.col-md-3 {
+  flex: 0 0 auto;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.small-tag {
+  background: #17a2b8;
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 4px;
+  margin-left: 5px;
+  color: #fff;
+}

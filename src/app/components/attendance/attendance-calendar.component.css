@@ -1,0 +1,190 @@
+/* Container Styling */
+.calendar-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  border: 3px solid #157347; /* Islamic green border */
+}
+/* Filters Section */
+.filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  align-items: stretch;
+}
+
+.filter-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-item label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.filter-item select,
+.filter-item input,
+.month-nav {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.filter-item select,
+.filter-item input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.filter-item select[multiple] {
+  height: 120px;
+}
+
+.month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+}
+
+.month-nav button {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.month-nav span {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+}
+/* Month Navigation */
+.month-nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.month-nav button {
+  background: #157347; /* Islamic green */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.month-nav button:hover {
+  background: #125c3a;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+  background: #f0f4f1;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.day-name {
+  font-weight: bold;
+  background: #157347;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.day {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  min-height: 70px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.day:hover {
+  background: #e9f6f1;
+  transform: scale(1.05);
+}
+
+.day.today {
+  background: #d4edda;
+  border: 2px solid #157347;
+  font-weight: bold;
+}
+
+/* Status Badges */
+.status span {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.status.Present {
+  background: green; /* Green */
+  color: white;
+}
+
+.status.Absent {
+  background: red; /* Red */
+  color: white;
+}
+
+.status.late {
+  background: orange; /* Orange */
+  color: white;
+}
+
+/* Dialog Styling */
+.dialog {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  width: 400px;
+  max-width: 90%;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -10%); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Islamic Theme Accent */
+.calendar-container h2 {
+  text-align: center;
+  color: #157347;
+  margin-bottom: 20px;
+  font-weight: bold;
+}

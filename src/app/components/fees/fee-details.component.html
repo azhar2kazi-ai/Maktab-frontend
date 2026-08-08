@@ -1,0 +1,64 @@
+<div class="fees-page">
+  <div class="page-header">
+    <h2>Fee Details for {{ student?.studentName }}</h2>
+    <p><b>Note: Student Admission Date {{ student?.admissionDate }}</b></p>
+    <p><b>Total Fees Paid:</b> Rs. {{ calculateTotalFeesPaid(student) }}/-</p>
+    <p><b>Total Fees Pending:</b> Rs. {{ calculateTotalFeesPending(student) }}/-</p>
+  </div>
+
+  <table class="fees-table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Month</th>
+      <th>Fees Paid Date</th>
+      <th>Paid Amount</th>
+      <th>Status</th>
+      <th>Received By</th>
+      <th>Payment Mode</th>
+      <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let f of allFees; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td data-label="Month">{{ f.month }}</td>
+      <td data-label="Payment Date">
+        <input type="date" [(ngModel)]="f.paymentDate" name="paymentDate{{i}}">
+      </td>
+      <td data-label="Paid Amount">
+        <input type="number" [(ngModel)]="f.paidAmount" name="paidAmount{{i}}">
+      </td>
+      <td data-label="Status">
+        <select [(ngModel)]="f.status" name="status{{i}}">
+          <option value="PAID">Paid</option>
+          <option value="UNPAID">Un-paid</option>
+          <!--<option value="FISBILILLAH">Fi Sabilillah</option>-->
+        </select>
+      </td>
+      <td data-label="Received By">
+        <input type="text" [(ngModel)]="f.recordedBy" name="recordedBy{{i}}" autocomplete="off">
+      </td>
+      <td data-label="Payment Mode">
+        <select [(ngModel)]="f.paymentMode" name="paymentMode{{i}}">
+          <option value="ONLINE">ONLINE</option>
+          <option value="UPI">UPI</option>
+          <option value="CASH">CASH</option>
+        </select>
+      </td>
+      <td data-label="Remark">
+        <input type="text" [(ngModel)]="f.remark" name="remark{{i}}" autocomplete="off">
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+
+  <div class="action-buttons-left">
+    <button appBackButton class="btn btn-secondary">Back</button>
+    <button class="notify-btn" (click)="notifyParents()">Notify Parents/Guardian</button>
+    <!--<button class="btn-primary" (click)="addFee()">Save</button>-->
+    <button class="btn-secondary" (click)="editFee()">Save</button>
+    <!--<button class="bg-warning" (click)="deleteFee()">Delete</button>-->
+  </div>
+</div>

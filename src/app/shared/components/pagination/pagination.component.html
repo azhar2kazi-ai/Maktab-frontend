@@ -1,0 +1,35 @@
+<nav aria-label="Pagination" class="maktab-pagination">
+  <ul class="pagination-list">
+    <li>
+      <button class="btn" [disabled]="page.page === 0" (click)="goTo(0)" aria-label="First">«</button>
+    </li>
+    <li>
+      <button class="btn" [disabled]="page.page === 0" (click)="goTo(page.page - 1)" aria-label="Previous">‹</button>
+    </li>
+
+    <li *ngFor="let p of pageNumbers">
+      <button
+        class="btn page-number"
+        [class.active]="p === page.page"
+        (click)="goTo(p)"
+        [attr.aria-current]="p === page.page ? 'page' : null"
+      >
+        {{ p + 1 }}
+      </button>
+    </li>
+
+    <li>
+      <button class="btn" [disabled]="page.page >= (page.totalPages - 1)" (click)="goTo(page.page + 1)" aria-label="Next">›</button>
+    </li>
+    <li>
+      <button class="btn" [disabled]="page.page >= (page.totalPages - 1)" (click)="goTo(page.totalPages - 1)" aria-label="Last">»</button>
+    </li>
+
+    <li class="page-size">
+      <label for="page-size-select" class="sr-only">Page size</label>
+      <select id="page-size-select" [value]="page.size" (change)="changeSize($any($event.target).value)">
+        <option *ngFor="let s of pageSizeOptions" [value]="s">{{ s }}</option>
+      </select>
+    </li>
+  </ul>
+</nav>

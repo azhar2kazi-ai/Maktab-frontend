@@ -1,0 +1,52 @@
+<div class="container mt-3">
+  <h2 class="page-title">👨‍🎓 Students</h2>
+
+  <div class="row mb-5">
+    <div class="col-md-9">
+      <input type="text" class="form-control" placeholder="Search students by name, class, phone no..." [(ngModel)]="searchText">
+    </div>
+    <div class="col-md-3">
+      <button class="btn-primary" routerLink="/students/add">➕ Add Student</button>
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Father/Guardian Name</th>
+        <th>Surname</th>
+        <th>Class</th>
+        <th>Phone</th>
+        <th>Admission Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let student of filteredStudents(); let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <a [routerLink]="['/student/details', student.id]">{{ student.name }}</a>
+        </td>
+        <td>{{ student.guardianName }}</td>
+        <td>{{ student.surName }}</td>
+        <td>{{ student.maktabClass?.name }} - {{ student.maktabClass?.division }}</td>
+        <td>{{ student.phone }}</td>
+        <td>{{ student.admissionDate }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-container *ngIf="pageData">
+    <app-pagination
+      [page]="pageData"
+      (pageChange)="onPageChange($event)"
+    ></app-pagination>
+  </ng-container>
+
+  <button appBackButton class="btn-secondary">Back</button>
+</div>
+
+
+

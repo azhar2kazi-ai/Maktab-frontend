@@ -1,0 +1,91 @@
+.student-details-container {
+  padding: 25px;
+  background: #ffffff;
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins', sans-serif;
+  border: 3px solid #157347; /* Islamic green border */
+}
+
+/* Month Navigation */
+.month-nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.month-nav button {
+  background: #157347; /* Islamic green */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.month-nav button:hover {
+  background: #125c3a;
+}
+
+/* Attendance Table */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.attendance-table th {
+  background: #157347;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.attendance-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.attendance-table tr:nth-child(even) {
+  background: #f0f4f1;
+}
+
+.attendance-table tr:hover {
+  background: #e9f6f1;
+}
+
+/* Status Colors */
+.present {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.absent {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.late {
+  color: #fd7e14;
+  font-weight: bold;
+}
+
+/* Islamic Theme Heading */
+.student-details-container h2 {
+  text-align: center;
+  color: #157347;
+  font-size: 22px;
+  margin-bottom: 15px;
+}

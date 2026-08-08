@@ -1,0 +1,71 @@
+<div class="dashboard-tiles">
+  <div class="tile student-tile" (click)="navigateTo('students')">
+    <div class="tile-content">
+      <h3>Students</h3>
+      <p>Manage student details</p>
+    </div>
+  </div>
+
+  <!--<div [class.disabled]="!isHomeEnabled" class="tile teacher-tile" (click)="navigateTo('teachers')">
+    <div class="tile-content">
+      <h3>Teachers</h3>
+      <p>Manage teacher details</p>
+    </div>
+  </div>-->
+
+  <div class="tile fees-tile" (click)="navigateTo('fees')">
+    <div class="tile-content">
+      <h3>Fees</h3>
+      <p>Manage fees and payments</p>
+    </div>
+  </div>
+
+<!--  <div class="tile exams-tile" (click)="navigateTo('exams')">
+    <div class="tile-content">
+      <h3>Exams</h3>
+      <p>Schedule and results</p>
+    </div>
+  </div>
+-->
+  <!--<div [class.disabled]="!isHomeEnabled" class="tile subjects-tile" (click)="navigateTo('admin')">
+    <div class="tile-content">
+      <h3>Admin</h3>
+      <p>Admin Section</p>
+    </div>
+  </div>-->
+
+  <div [class.disabled]="!isHomeEnabled" class="tile classes-tile" (click)="navigateTo('classes')">
+    <div class="tile-content">
+      <h3>Classes</h3>
+      <p>Manage classes and sections</p>
+    </div>
+  </div>
+
+  <div  class="tile attendance-tile" (click)="navigateTo('attendance')">
+    <div class="tile-content">
+      <h3>Attendance</h3>
+      <p>Track student attendance</p>
+    </div>
+  </div>
+
+  <div class="tile reports-tile" (click)="navigateTo('reports')">
+    <div class="tile-content">
+      <h3>Reports</h3>
+      <p>View analytics & reports</p>
+    </div>
+  </div>
+
+  <div class="tile evaluations-tile" (click)="navigateTo('evaluations')">
+    <div class="tile-content">
+      <h3>Evaluations</h3>
+      <p>Manage tests and scores</p>
+    </div>
+  </div>
+
+  <div class="tile reports-tile" (click)="navigateTo('upload')">
+    <div class="tile-content">
+      <h3>Upload</h3>
+      <p>Upload Data files</p>
+    </div>
+  </div>
+</div>

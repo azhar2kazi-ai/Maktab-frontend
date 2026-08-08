@@ -1,0 +1,116 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h2 class="mb-4">Application Settings</h2>
+
+      <!-- Alert Messages -->
+      <div *ngIf="message" [ngClass]="messageType === 'success' ? 'alert alert-success' : 'alert alert-danger'"
+           role="alert">
+        {{ message }}
+      </div>
+
+      <!-- Loading Spinner -->
+      <div *ngIf="loading" class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- Settings Form -->
+      <form *ngIf="!loading" (ngSubmit)="saveSettings()" #settingsForm="ngForm">
+
+        <!-- App Title -->
+        <div class="mb-3">
+          <label for="appTitle" class="form-label">Application Title</label>
+          <input type="text" class="form-control" id="appTitle" name="appTitle"
+                 [(ngModel)]="settings.appTitle" placeholder="e.g., Anjuman Hazrat Abu Bakr Siddique">
+        </div>
+
+        <!-- School Name -->
+        <div class="mb-3">
+          <label for="schoolName" class="form-label">School Name</label>
+          <input type="text" class="form-control" id="schoolName" name="schoolName"
+                 [(ngModel)]="settings.schoolName" placeholder="e.g., Anjuman Hazrat Abu Bakr Siddique">
+        </div>
+
+        <!-- Principal Name -->
+        <div class="mb-3">
+          <label for="principalName" class="form-label">Principal Name</label>
+          <input type="text" class="form-control" id="principalName" name="principalName"
+                 [(ngModel)]="settings.principalName" placeholder="e.g., Dr. John Doe">
+        </div>
+
+        <!-- Address -->
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <textarea class="form-control" id="address" name="address" rows="3"
+                    [(ngModel)]="settings.address"
+                    placeholder="Enter complete address"></textarea>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="tel" class="form-control" id="phone" name="phone"
+                 [(ngModel)]="settings.phone" placeholder="e.g., +92-XXX-XXXXXXX">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email"
+                 [(ngModel)]="settings.email" placeholder="e.g., info@school.com">
+        </div>
+
+        <!-- Website -->
+        <div class="mb-3">
+          <label for="website" class="form-label">Website</label>
+          <input type="url" class="form-control" id="website" name="website"
+                 [(ngModel)]="settings.website" placeholder="e.g., www.school.com">
+        </div>
+
+        <!-- Established Year -->
+        <div class="mb-3">
+          <label for="establishedYear" class="form-label">Established Year</label>
+          <input type="number" class="form-control" id="establishedYear" name="establishedYear"
+                 [(ngModel)]="settings.establishedYear" placeholder="e.g., 2024">
+        </div>
+
+        <!-- App Icon Path -->
+        <div class="mb-3">
+          <label for="appIconPath" class="form-label">App Icon Path</label>
+          <input type="text" class="form-control" id="appIconPath" name="appIconPath"
+                 [(ngModel)]="settings.appIconPath" placeholder="e.g., /assets/favicon.ico">
+        </div>
+
+        <!-- Logo Path -->
+        <div class="mb-3">
+          <label for="logoPath" class="form-label">Logo Path</label>
+          <input type="text" class="form-control" id="logoPath" name="logoPath"
+                 [(ngModel)]="settings.logoPath" placeholder="e.g., /assets/logo.png">
+        </div>
+
+        <!-- App Description -->
+        <div class="mb-3">
+          <label for="appDescription" class="form-label">App Description</label>
+          <textarea class="form-control" id="appDescription" name="appDescription" rows="4"
+                    [(ngModel)]="settings.appDescription"
+                    placeholder="Enter application description"></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="button" class="btn btn-secondary" (click)="resetForm()">
+            Reset
+          </button>
+          <button type="submit" class="btn btn-primary" [disabled]="loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status"
+                  aria-hidden="true"></span>
+            {{ loading ? 'Saving...' : 'Save Settings' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

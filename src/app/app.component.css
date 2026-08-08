@@ -1,0 +1,4 @@
+.main-content-container {
+  padding: var(--spacing-lg);
+  flex: 1;
+}

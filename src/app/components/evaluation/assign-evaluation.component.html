@@ -1,0 +1,46 @@
+<div class="assign-evaluation">
+  <h2>Assign Evaluations to Class</h2>
+
+  <div *ngIf="message" [ngClass]="{'alert-success': messageType === 'success', 'alert-danger': messageType === 'error'}" class="alert">
+    {{message}}
+  </div>
+
+  <form (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="classSelect">Select Class</label>
+      <select id="classSelect" [(ngModel)]="selectedClassId" name="classId" class="form-control" required
+      (ngModelChange)="onClassSelected()">
+        <option value="classes[0].id">-- Choose a class --</option>
+        <option *ngFor="let c of classes" [value]="c.id">{{c.name}} ({{c.division}})</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Select Evaluations</label>
+      <div class="evaluations-list">
+        <div *ngFor="let eval of evaluations" class="evaluation-item">
+          <label>
+            <input
+              type="checkbox"
+              [checked]="isEvaluationSelected(eval.id)"
+              (change)="toggleEvaluation(eval.id!)"
+            />
+            <span class="eval-name">{{eval.name}}</span>
+            <span class="eval-meta">(Max: {{eval.description}}, Pass: {{eval.active}})</span>
+          </label>
+        </div>
+      </div>
+      <div *ngIf="evaluations.length === 0" class="alert alert-info">
+        No evaluations available. Create some evaluations first.
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="submitting">
+        {{submitting ? 'Assigning...' : 'Assign Evaluations'}}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+

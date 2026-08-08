@@ -1,0 +1,71 @@
+/* Attendance component uses global styles from styles.css */
+
+.container {
+  background: var(--bg-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--accent-color);
+  margin-top: var(--spacing-lg);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-title {
+  font-size: var(--font-size-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+/* Filters section */
+.filters {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.filters select,
+.filters input {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.filters select:focus,
+.filters input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 102, 102, 0.1);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.actions button {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-normal);
+}
+
+.actions button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+
+

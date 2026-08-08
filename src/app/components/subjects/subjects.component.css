@@ -1,0 +1,46 @@
+/* Subjects component uses global styles from styles.css */
+
+.container {
+  background: var(--bg-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--accent-color);
+  margin-top: var(--spacing-lg);
+}
+
+.page-title {
+  font-size: var(--font-size-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+/* Action Bar */
+.action-bar {
+  margin-bottom: var(--spacing-lg);
+  text-align: right;
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Text for multiple values (Classes & Teachers) */
+td span {
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Separator for list items */
+td span span {
+  margin: 0 var(--spacing-xs);
+}
+

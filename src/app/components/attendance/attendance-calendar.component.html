@@ -1,0 +1,103 @@
+<div class="container mt-3">
+  <h2>Monthly Attendance</h2>
+
+  <!-- Filters -->
+  <div class="filters">
+
+    <div class="filter-item">
+      <label for="class">Class</label>
+      <select id="class"
+              [(ngModel)]="selectedClass"
+              (change)="loadAttendance()">
+        <option value="">All Classes</option>
+        <option *ngFor="let cls of classes" [value]="cls.id">
+          {{ cls.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label for="student">Student</label>
+      <select id="student"
+              multiple
+              [(ngModel)]="selectedStudentIds"
+              (change)="loadAttendance()">
+        <option *ngFor="let student of filteredStudents()"
+                [value]="student.id">
+          {{ student.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label>Month</label>
+      <div class="month-nav">
+        <button (click)="prevMonth()">⬅️</button>
+        <span>{{ monthNames[currentMonth] }} {{ currentYear }}</span>
+        <button (click)="nextMonth()">➡️</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Calendar -->
+  <div class="calendar-grid">
+    <div class="day-name" *ngFor="let d of dayNames">{{ d }}</div>
+    <div class="day" *ngFor="let day of daysInMonth"
+         [class.today]="day.today"
+         (click)="openAttendance(day.date)">
+      <span>{{ day.date.getDate() }}</span>
+      <div class="status Present" *ngIf="day.status==='PRESENT'">
+        <span [ngClass]="day.status.toLowerCase()">{{ day.status[0] }}</span>
+      </div>
+      <div class="status Absent" *ngIf="day.status==='ABSENT'">
+        <span [ngClass]="day.status.toLowerCase()">{{ day.status[0] }}</span>
+      </div>
+      <div class="status late" *ngIf="day.status==='LATE'">
+        <span [ngClass]="day.status.toLowerCase()">{{ day.status[0] }} ({{day.minutesLate}} minutes)</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedDay" class="dialog">
+    <h3>Attendance for {{ selectedDay | date:'fullDate' }}</h3>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Student</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let student of selectedStudents">
+        <td>{{ student.name }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="status-section">
+      <label><strong>Status</strong></label>
+      <select [(ngModel)]="selectedStatus">
+        <option value="PRESENT">✅ Present</option>
+        <option value="ABSENT">❌ Absent</option>
+        <option value="LATE">⏰ Late</option>
+      </select>
+    </div>
+
+    <div class="late-time" *ngIf="selectedStatus==='LATE'">
+      <label for="lateTime">Late Time (minutes)</label>
+      <input id="lateTime" type="number" [(ngModel)]="minutesLate" min="1">
+
+    </div>
+
+    <div class="actions">
+      <button (click)="saveAttendances()">Save</button>
+      <button (click)="closeDialog()">Cancel</button>
+    </div>
+  </div>
+  <div class="actions">
+  <button appBackButton class="btn btn-secondary">Back</button>
+  <!--<button class ="btn-primary" (click)="saveAttendances()">Update Selected</button>-->
+  </div>
+</div>

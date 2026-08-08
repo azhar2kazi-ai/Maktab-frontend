@@ -1,0 +1,44 @@
+.maktab-pagination {
+  .pagination-list {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .btn {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      background: white;
+      cursor: pointer;
+    }
+    .btn[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .page-number.active {
+      background: #0d6efd;
+      color: white;
+      border-color: #0d6efd;
+    }
+    .page-size {
+      margin-left: 12px;
+      select {
+        padding: 4px 6px;
+      }
+    }
+    .sr-only {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  }
+}

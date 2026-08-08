@@ -1,0 +1,6 @@
+.evaluation-form { padding: 16px; max-width: 700px; }
+.form-group { margin-bottom: 12px; }
+.form-row { display:flex; gap:12px; }
+.form-row .col { flex:1; }
+.form-actions { margin-top: 12px; display:flex; gap:8px; }
+

@@ -1,0 +1,35 @@
+<nav class="navbar" *ngIf="(settings$ | async) as settings">
+  <!-- Left side - Load from Backend -->
+  <div class="navbar-left" >
+    <img class="icon" [src]="settings.appIconPath" alt="School Icon">
+    <div>
+      <h2>{{ settings.schoolName}}</h2>
+      <h5>{{ settings.address}}</h5>
+    </div>
+  </div>
+
+  <!-- Fallback if settings not loaded -->
+  <div class="navbar-left" *ngIf="!(settings$ | async)">
+    <img class="icon" [src]="settings.appIconPath" alt="School Icon">
+    <div>
+      <h2>{{ settings.schoolName}}</h2>
+      <h5>{{ settings.address}}</h5>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar-brand" *ngIf="this.router.url != '/dashboard'">
+  <ul>
+    <li ><a routerLink="/dashboard" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/students" routerLinkActive="active">Students</a></li>
+    <li><a    routerLink="/teachers" routerLinkActive="active">Teachers</a></li>
+    <li><a    routerLink="/classes" routerLinkActive="active">Classes</a></li>
+    <li><a  [class.disabled]="!isHomeEnabled" routerLink="/admin" routerLinkActive="active">Admin</a></li>
+    <li><a  [class.disabled]="!isHomeEnabled" routerLink="/settings" routerLinkActive="active">Settings</a></li>
+    <li><a routerLink="/attendance" routerLinkActive="active">Attendance</a></li>
+    <li><a routerLink="/fees" routerLinkActive="active">Fees</a></li>
+    <li><a routerLink="/reports" routerLinkActive="active">Reports</a></li>
+    <li><a routerLink="/upload" routerLinkActive="active">Upload</a></li>
+    <li><a routerLink="/evaluations" routerLinkActive="active">Evaluations</a></li>
+  </ul>
+</nav>

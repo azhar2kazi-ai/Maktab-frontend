@@ -1,0 +1,5 @@
+.evaluations-container { padding: 16px; }
+.evaluations-container .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.header-actions { display:flex; gap:8px; }
+.table { width:100%; }
+

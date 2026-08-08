@@ -1,0 +1,78 @@
+<div class="container mt-3">
+  <h2 class="page-title">👨‍🏫 Teachers</h2>
+
+  <div class="action-bar">
+    <button class="btn-add-class" (click)="openTeacherModal('add')">➕ Add Teacher</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="class-table">
+      <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Phone number</th>
+        <th>Assigned Class</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let teacher of teachers ?? []">
+        <td>{{ teacher.fullName }}</td>
+        <td>{{ teacher.phone }}</td>
+        <td><select>
+          <option *ngFor="let cls of teacher.maktabClass" [value]="cls">
+            {{ cls }}
+          </option>
+        </select></td>
+        <td>
+          <button class="btn-edit-class" (click)="openTeacherModal('edit', teacher)">
+            ✏️ Edit
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button appBackButton class="btn-secondary">Back</button>
+</div>
+
+<!-- Teacher Modal -->
+<div *ngIf="isTeacherModalOpen" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>{{ teacherModalMode === 'add' ? '➕ Add Teacher' : '✏️ Edit Teacher' }}</h3>
+      <button class="btn-close" (click)="closeTeacherModal()">✖</button>
+    </div>
+
+    <div class="modal-content">
+      <form [formGroup]="teacherForm">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" formControlName="fullName" />
+        </div>
+
+        <div class="form-group">
+          <label>Phone number</label>
+          <input type="text" formControlName="phone" />
+        </div>
+
+        <div class="form-group">
+          <label>Assigned Class</label>
+          <select formControlName="maktabClass" >
+            <option *ngFor="let cls of classes" [value]="cls.id">
+              {{cls.name}} - {{cls.division}} ({{cls.timing}})
+            </option>
+          </select>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="closeTeacherModal()">Cancel</button>
+      <button class="btn-primary" (click)="saveTeacher()">
+        {{ teacherModalMode === 'add' ? '💾 Save' : '💾 Update' }}
+      </button>
+    </div>
+  </div>
+</div>

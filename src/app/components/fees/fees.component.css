@@ -1,0 +1,162 @@
+/* Fees component uses global styles from styles.css */
+.container {
+  background: var(--bg-primary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--accent-color);
+  margin-top: var(--spacing-lg);
+}
+
+.page-header {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
+  margin-bottom: var(--spacing-lg);
+}
+
+.page-header h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.page-header h5 {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-header h5:last-child {
+  margin-bottom: 0;
+}
+
+/* Filters */
+.fees-filters {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.fees-filters select,
+.fees-filters input {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.fees-filters select:focus,
+.fees-filters input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 102, 102, 0.1);
+}
+
+.large-input {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Status Colors */
+.paid {
+  color: var(--success-color);
+  font-weight: var(--font-weight-bold);
+}
+
+.unpaid {
+  color: var(--danger-color);
+  font-weight: var(--font-weight-bold);
+}
+
+.fi-sabilillah {
+  color: var(--warning-color);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Bulk Actions */
+.bulk-actions {
+  margin: var(--spacing-lg) 0;
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  flex: 1;
+  min-width: 160px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.action-btn.paid {
+  background-color: var(--success-color);
+}
+
+.action-btn.unpaid {
+  background-color: var(--danger-color);
+}
+
+.action-btn.notify {
+  background-color: var(--info-color);
+}
+
+.action-btn.paid {
+  background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.action-btn.unpaid {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.action-btn.notify {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+/* Back Button */
+.action-buttons-left {
+  margin-top: 15px;
+}
+
+.action-buttons-left .back-btn {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.action-buttons-left .back-btn:hover {
+  background-color: #5a6268;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.small-tag {
+  background: #17a2b8;
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 4px;
+  margin-left: 5px;
+  color: #fff;
+}

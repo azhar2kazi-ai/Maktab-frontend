@@ -1,0 +1,85 @@
+<div class="evaluation-form">
+
+  <h2 class="title">Evaluation Paper</h2>
+
+  <div class="header">
+
+    <div>
+      <label>Student Name</label>
+      <input
+        type="text"
+        [(ngModel)]="studentEvaluation.student.name">
+    </div>
+
+    <div>
+      <label>Class</label>
+      <input
+        type="text"
+        [value]="studentEvaluation.maktabClass.name"
+        readonly>
+    </div>
+
+    <div>
+      <label>Ustaad</label>
+      <input
+        type="text"
+        [(ngModel)]="studentEvaluation.evaluatorName">
+    </div>
+
+    <div>
+      <label>Date</label>
+      <input
+        type="text"
+        [value]="studentEvaluation.evaluationDate"
+        readonly>
+    </div>
+
+  </div>
+
+  <table>
+
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Subject</th>
+      <th width="120">Grade</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr *ngFor="let eval of studentEvaluation.evaluation; let i=index">
+
+      <td>{{i+1}}</td>
+
+      <td>{{eval.name}}</td>
+
+      <td>
+
+        <input
+          type="text"
+          maxlength="5"
+          [(ngModel)]="eval.grade">
+
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+
+  <div class="comment">
+
+    <label>Comment</label>
+
+    <textarea
+      rows="4"
+      [(ngModel)]="studentEvaluation.remarks">
+        </textarea>
+
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="submitting">{{ isEditable ? 'Update' : 'Create' }}</button>
+    <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+</div>
+
